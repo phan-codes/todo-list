@@ -29,7 +29,7 @@ export const useTodoStore = create<UseTodoStoreProp>((set) => ({
 	setTodos: (todos: TodoProp[]) => set({ todos }),
 
 	addTodo: async (newTodo) => {
-		const response = await fetch("http://localhost:3000/api/todos", {
+		const response = await fetch("https://todolist-a1so.onrender.com/api/todos", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -49,13 +49,13 @@ export const useTodoStore = create<UseTodoStoreProp>((set) => ({
 	},
 
 	fetchTodos: async () => {
-		const response = await fetch("http://localhost:3000/api/todos");
+		const response = await fetch("https://todolist-a1so.onrender.com/api/todos");
 		const data = await response.json();
 		set({ todos: data.data });
 	},
 
 	deleteTodo: async (id) => {
-		const response = await fetch(`http://localhost:3000/api/todos/${id}`, {
+		const response = await fetch(`https://todolist-a1so.onrender.com/api/todos/${id}`, {
 			method: "DELETE",
 		});
 
@@ -69,7 +69,7 @@ export const useTodoStore = create<UseTodoStoreProp>((set) => ({
 	},
 
 	updateTodo: async (id, updatedTodo) => {
-		const response = await fetch(`http://localhost:3000/api/todos/${id}`, {
+		const response = await fetch(`https://todolist-a1so.onrender.com/api/todos/${id}`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json", // Add this line
